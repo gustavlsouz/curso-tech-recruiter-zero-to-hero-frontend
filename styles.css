@@ -1,0 +1,68 @@
+#sign-out {
+  float: right;
+}
+
+.task-form {
+  max-width: 450px;
+}
+
+.team-form {
+  max-width: 450px;
+}
+
+.main {
+  margin: 12px;
+}
+
+#task-list-container {
+  margin: 32px 16px 12px 4px;
+}
+
+#add-task-button {
+  margin-top: 8px;
+}
+
+.task-title-field {
+  font-weight: bold;
+}
+
+.task-description-field {
+  font-weight: bold;
+}
+
+.task-date-field {
+  font-weight: bold;
+}
+
+.task-author-field {
+  font-weight: bold;
+}
+
+.task-done-by-field {
+  font-weight: bold;
+}
+
+.task-status-field {
+  font-weight: bold;
+}
+
+#upsert-team-button {
+  margin-top: 8px;
+}
+
+.task-description {
+  overflow: auto;
+}
+
+.task-done-button {
+  margin: 8px;
+  max-height: 40px;
+}
+/* 
+.field {
+  padding: 0;
+} */
+
+.task-title {
+  font-weight: bold;
+}

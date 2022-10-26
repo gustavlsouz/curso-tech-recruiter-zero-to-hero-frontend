@@ -1,0 +1,25 @@
+{
+  "name": "frontend-task-zero-to-hero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "browserify . --debug | exorcist bundle.js.map > bundle.js && serve -p 5000 .",
+    "expose": "lt --port 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://"
+  },
+  "author": "gustavo",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "exorcist": "^2.0.0",
+    "localtunnel": "^2.0.2"
+  }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Frontend Zero to Hero</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="imagem/png" href="./icons/clipboard.png" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <script>
+      (function init() {
+        const query = new URLSearchParams(window.location.search);
+        const teamNameFromQuery = query.get("team");
+        const teamNameFromStorage = localStorage.getItem("team");
+        const hasTeam = Boolean(teamNameFromQuery || teamNameFromStorage);
+        if (!hasTeam) {
+          window.location.href = "/team";
+          return;
+        }
+
+        if (teamNameFromQuery) {
+          localStorage.setItem("team", teamNameFromQuery);
+          return;
+        }
+
+        if (teamNameFromStorage) {
+          query.set("team", teamNameFromStorage);
+          window.location.search = query.toString();
+          return;
+        }
+      })();
+    </script>
+    <script>
+      (function validateNameOnStorage() {
+        const userFromStorage = localStorage.getItem("user");
+        if (!userFromStorage) {
+          window.location.href = "/team";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <button type="button" class="btn btn-link" id="sign-out">
+      Sair deste time
+    </button>
+    <div class="main">
+      <div class="editing">
+        <div class="presentation">
+          <h3>Lista de tarefas</h3>
+          <p>
+            Olá, <span id="user-name-label"></span>! Você está no time "<span
+              id="team-name-label"
+            ></span
+            >"
+          </p>
+          <p>Escreva uma tarefa que precisa ser feita no campo abaixo</p>
+        </div>
+
+        <form class="task-form" method="POST" target="iframe">
+          <div class="form-group">
+            <label for="title">Título</label>
+            <input
+              id="new-task-title-input"
+              type="text"
+              name="title"
+              value=""
+              class="form-control"
+            />
+
+            <label for="description">Descrição</label>
+            <input
+              id="new-task-description-input"
+              type="text"
+              name="description"
+              value=""
+              class="form-control"
+            />
+
+            <button
+              type="button"
+              id="add-task-button"
+              class="btn btn-outline-primary"
+            >
+              <i class="bi bi-plus"></i>
+              Adicionar
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div id="task-list-container">
+        <ul id="task-list"></ul>
+      </div>
+    </div>
+  </body>
+  <script src="./bundle.js"></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"
+  ></script>
+</html>
